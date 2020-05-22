@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const Groceryitem = [
+      {
+        type: "Choclate",
+        name: "DairyMilk",
+        price: 120,
+        status: "Available",
+        item_sold: 4
+      },
+      {
+        type: "Choclate",
+        name: "KitKat",
+        price: 70,
+        status: "Available",
+        item_sold: 2
+      },
+      {
+        type: "Choclate",
+        name: "Perk",
+        price: 50,
+        status: "OutOfStock",
+        item_sold: 10
+      },
+      {
+        type: "Choclate",
+        name: "5Star",
+        price: 15,
+        status: "ComingSoon",
+        item_sold: 0
+      },
+      {
+        type: "Biscuit",
+        name: "GoodDay",
+        price: 20,
+        status: "Available",
+        item_sold: 2
+      },
+      {
+        type: "Biscuit",
+        name: "ParleG",
+        price: 10,
+        status: "OutOfStock",
+        item_sold: 14
+      },
+      {
+        type: "Biscuit",
+        name: "MarrieGold",
+        price: 30,
+        status: "Available",
+        item_sold: 5
+      },
+      {
+        type: "DairyProduct",
+        name: "Paneer",
+        price: 130,
+        status: "Available",
+        item_sold: 3
+      },
+      {
+        type: "DairyProduct",
+        name: "Milk",
+        price: 50,
+        status: "Available",
+        item_sold: 1
+      },
+      {
+        type: "DairyProduct",
+        name: "Dahi",
+        price: 15,
+        status: "OutOfStock",
+        item_sold: 4
+      },
+      {
+        type: "DairyProduct",
+        name: "Lassi",
+        price: 10,
+        status: "ComingSoon",
+        item_sold: 0
+      },
+
+    ];
+
+    function Grocerystore(data) {
+      return {
+        data,
+        //Particular item Details By Name
+        itemDetails(name) {
+          console.log("Particular item details By Name:")
+          return this.data.find(data => data.name === name)
+        },
+
+        totalitemlist() {
+          const allitemList = this.data.filter(data => data.status === "Available")
+          const list = allitemList.map(data => {
+            return data;
+
+          });
+          console.log("Total Available Item list :")
+          console.log(list);
+        },
+        // Total available item Name in store:
+        TotalAvailableItemName() {
+          const allName = this.data.filter(data => data.status === "Available")
+          console.log("Total Available item name: " + allName.map(data => {
+            return data.name;
+
+          }));
+        },
+
+        // Total available item Amount in store:
+        TotalAvailableItemAmount() {
+          const allAmount = this.data.filter(data => data.status === "Available")
+          console.log("price of Available item:  " + allAmount.map(data => {
+            return data.price;
+          }));
+        },
+
+        // Total OutOfStock item Name in store:
+        TotalOutOfStockItem() {
+          const itemName = this.data.filter(data => data.status === "OutOfStock")
+          console.log("Total OutOfStock item name:  " + itemName.map(data => {
+            return data.name;
+
+          }));
+        },
+
+
+        //Total item sold
+        NumberOfItemsold() {
+          const solditem = this.data.filter(data => data.item_sold > 0)
+          const count = solditem.map(data => data.item_sold)
+          console.log("Total No.of item sold out: " + count.reduce((a, b) => a + b, 0));
+
+
+        },
+        //item rate greater then 100 rupees
+        ItemGreaterThan100() {
+          const allPrice = this.data.filter(data => data.price >= 100)
+          console.log("Name of item has price Greater than 100   :" + allPrice.map(data => {
+            return data.name;
+          }));
+        },
+
+        //item rate lesser then 100 rupees
+        ItemLessThan100() {
+          const allPrice1 = this.data.filter(data => data.price < 100)
+          console.log("Name of item has price Less than 100   :" + allPrice1.map(data => {
+            return data.name;
+          }));
+        },
+
+        //item according to their type(which means biscuits, choclate,etc)
+        itemDetailsByType(type) {
+          console.log("Items Details according to type")
+          const alltype = this.data.filter(data => data.type === type)
+          console.log(alltype);
+        },
+        //Coming soon items
+        ComingsoonItem() {
+          const itemName2 = this.data.filter(data => data.status === "ComingSoon")
+          console.log("Coming Soon Item Names are:  " + itemName2.map(data => {
+            return data.name;
+
+          }));
+        },
+        //all items (including out of stock)
+        AllItem() {
+
+          const items = this.data.forEach(data => {
+            console.log(data)
+          });
+
+
+        },
+      }
+
+    }
+
+    const product = Grocerystore(Groceryitem);
+    console.log(product.itemDetails("GoodDay"));
+    product.totalitemlist();
+    product.TotalAvailableItemName();
+    product.TotalAvailableItemAmount();
+    product.TotalOutOfStockItem();
+
+    product.NumberOfItemsold();
+    product.ItemGreaterThan100();
+    product.ItemLessThan100();
+    product.itemDetailsByType("Choclate");
+    product.ComingsoonItem();
+    product.AllItem();
+  </script>
+</body>
+
+</html>

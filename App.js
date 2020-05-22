@@ -1,44 +1,26 @@
-const dataset = [
-  {
-    lender: 'someone',
-    borrower: 'sahil',
-    loanAmount: 5000,
-    emi: 600,
-    loanAmtPaid: 1000,
-    dueDate: 2 / 3 / 20,
-    defaulter: true,
-    loanSanctionedOnDate: 1 / 1 / 19,
-    annualIncome: 25000,
-    loantype: 'home',
-    roi: '3.5%',
-    transaction: 'cashless',
-  },
-  {
-    lender: 'ram',
-    borrower: 'shyam',
-    loanAmount: 50000,
-    emi: 650,
-    loanAmtPaid: 2000,
-    dueDate: 2 / 5 / 20,
-    defaulter: true,
-    loanSanctionedOnDate: 3 / 1 / 19,
-    annualIncome: 20000,
-    loantype: 'home',
-    roi: '3.5%',
-    transaction: 'cashless',
-  },
-  {
-    lender: 'someone',
-    borrower: 'sahil',
-    loanAmount: 5000,
-    emi: 600,
-    loanAmtPaid: 1000,
-    dueDate: 2 / 3 / 20,
-    defaulter: true,
-    loanSanctionedOnDate: 1 / 1 / 19,
-    annualIncome: 25000,
-    loantype: 'home',
-    roi: '3.5%',
-    transaction: 'cashless',
-  },
-];
+// function greet(name) {
+//   console.log(`Hello ${name}`);
+// }
+
+// greet('dipak');
+
+// function makeAdjective(adjective) {
+//   return function (val) {
+//     console.log(adjective + '' + val);
+//   };
+// }
+
+// var coolAdjective = makeAdjective('cool');
+// coolAdjective('conferense');
+
+// Map
+rooms = ['r1', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7'];
+
+var newRooms = rooms.map(function (val) {
+  if (val == 'r3') {
+    console.log('r2');
+  } else {
+    console.log(val);
+  }
+});
+newRooms;

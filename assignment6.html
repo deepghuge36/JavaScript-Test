@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank</title>
+</head>
+
+<body>
+  <h1>454546456</h1>
+  <script src>
+    const Loandataset = [
+      {
+        lender: 'Axis',
+        borrower: 'Krutika',
+        loanAmount: 5000,
+        emi: 600,
+        loanAmtPaid: 1000,
+        dueDate: 2 / 3 / 20,
+        defaulter: true,
+        loanSanctionedOnDate: 1 / 1 / 19,
+        annualIncome: 25000,
+        loantype: 'home',
+        roi: '3.5%',
+        transaction: 'cash',
+      },
+      {
+        lender: 'Axis',
+        borrower: 'Sangam',
+        loanAmount: 4000,
+        emi: 500,
+        loanAmtPaid: 900,
+        dueDate: 2 / 3 / 20,
+        defaulter: true,
+        loanSanctionedOnDate: 1 / 1 / 19,
+        annualIncome: 22000,
+        loantype: 'home',
+        roi: '3.8%',
+        transaction: 'cashless',
+      },
+      {
+        lender: 'Axis',
+        borrower: 'Sara',
+        loanAmount: 12000,
+        emi: 3000,
+        loanAmtPaid: 5000,
+        dueDate: 26 / 5 / 20,
+        defaulter: false,
+        loanSanctionedOnDate: 1 / 1 / 19,
+        annualIncome: 35000,
+        loantype: 'home',
+        roi: '5%',
+        transaction: 'cash',
+      },
+      {
+        lender: 'Axis',
+        borrower: 'Snehal',
+        loanAmount: 115000,
+        emi: 9000,
+        loanAmtPaid: 30000,
+        dueDate: 26 / 5 / 20,
+        defaulter: false,
+        loanSanctionedOnDate: 1 / 1 / 19,
+        annualIncome: 70000,
+        loantype: 'home',
+        roi: '5%',
+        transaction: 'cashless',
+      },
+      {
+        lender: 'SBI',
+        borrower: 'Minal',
+        loanAmount: 9000,
+        emi: 900,
+        loanAmtPaid: 2000,
+        dueDate: 2 / 3 / 20,
+        defaulter: true,
+        loanSanctionedOnDate: 1 / 1 / 19,
+        annualIncome: 27000,
+        loantype: 'home',
+        roi: '3.5%',
+        transaction: 'cashless',
+      },
+      {
+        lender: 'SBI',
+        borrower: 'Pallavi',
+        loanAmount: 4000,
+        emi: 500,
+        loanAmtPaid: 900,
+        dueDate: 2 / 3 / 20,
+        defaulter: true,
+        loanSanctionedOnDate: 1 / 1 / 19,
+        annualIncome: 22000,
+        loantype: 'home',
+        roi: '3.8%',
+        transaction: 'cashless',
+      },
+      {
+        lender: 'SBI',
+        borrower: 'Zayra',
+        loanAmount: 12000,
+        emi: 3000,
+        loanAmtPaid: 5000,
+        dueDate: 26 / 5 / 20,
+        defaulter: false,
+        loanSanctionedOnDate: 1 / 1 / 19,
+        annualIncome: 35000,
+        loantype: 'home',
+        roi: '5%',
+        transaction: 'cash',
+      },
+      {
+        lender: 'SBI',
+        borrower: 'Komal',
+        loanAmount: 115000,
+        emi: 9000,
+        loanAmtPaid: 30000,
+        dueDate: 26 / 5 / 20,
+        defaulter: false,
+        loanSanctionedOnDate: 1 / 1 / 19,
+        annualIncome: 70000,
+        loantype: 'home',
+        roi: '5%',
+        transaction: 'cashless',
+      },
+      {
+        lender: 'kotak',
+        borrower: 'Anjeli',
+        loanAmount: 150000,
+        emi: 5000,
+        loanAmtPaid: 9000,
+        dueDate: 23 / 5 / 20,
+        defaulter: false,
+        loanSanctionedOnDate: 1 / 1 / 19,
+        annualIncome: 100000,
+        loantype: 'home',
+        roi: '5%',
+        transaction: 'cashless',
+      },
+    ];
+
+    function LoanRecord(data) {
+      return {
+        data,
+        lenderName(name) {
+          debugger;
+          return this.data.find(data => data.lender === name)
+        }
+      }
+    }
+
+    var loanDetails = LoanRecord(Loandataset)
+    loanDetails.lenderName("kotak")
+    console.log(loanDetails.lenderName("kotak"))
+  </script>
+</body>
+
+</html>

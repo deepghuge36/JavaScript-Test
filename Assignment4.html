@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=<device-width>, initial-scale=1.0"> -->
+    <title>Document</title>
+</head>
+<body>
+    <script>
+const BookData = [
+        {
+          title: "David Copperfield	",
+          price: 300,
+          Author:"Charles Dickens",
+          SoldOut:7
+        },
+        {
+            title:"River of Smoke",
+          price: 900,
+          Author:"Amitav Ghose",
+          SoldOut:4
+        },
+        {
+        title:"Politics",
+          price: 450,
+          Author:"Aristotle",
+          SoldOut:6
+        },
+        {
+            title:"The Final Passage",
+          price: 2000,
+          Author:"Caryl Phjillips",
+          SoldOut:5
+        }
+      ];
+      function Bookstore(data){
+        return{
+          data,
+          bookDetails(title){
+            return this.data.find(data => data.title === title)
+
+          },
+          totalPrice() {
+            return this.data.reduce((total, books) => {
+              return (books.price + total);
+            }, 0)
+          },
+          highestPrice(){
+            // return this.data.reduce((a,b) =>a.price > b.price ? a : b).price;
+          //  return Math.max(...this.data.map(s => s.price));
+          let b=this.data.map(s =>{
+            return s.price;
+          })
+            return Math.max(...b);
+          },
+
+          lowestPrice(){
+            // return this.data.reduce((a,b) =>a.price < b.price ? a : b).price;
+            // return Math.min(...this.data.map(s => s.price));
+            let b=this.data.map(s =>{
+            return s.price;
+          })
+            return Math.min(...b);
+          },
+
+       highestSelling(){
+      // return this.data.reduce((a,b) =>a.SoldOut > b.SoldOut ? a : b).title;
+
+      let b=this.data.map(s =>{
+            return s.SoldOut;
+          
+          })
+            return Math.max(...b);
+     }
+          
+            
+          
+      
+      }
+      }
+        
+      
+      const Book = Bookstore(BookData);
+  console.log(Book.bookDetails("The Final Passage"))
+     console.log(`Total Price of All books: ${Book.totalPrice()}`);
+    console.log(`Highest price: ${Book.highestPrice()}`);
+    console.log(`lowest price: ${Book.lowestPrice()}`);
+    console.log(`Highest Selling Book: ${Book.highestSelling()}`);
+
+      
+
+    </script>
+</body>
+</html>

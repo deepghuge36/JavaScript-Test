@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const Loandataset = [
+            {
+                lender: 'Axis',
+                borrower: 'Krutika',
+                loanAmount: 5000,
+                emi: 600,
+                loanAmtPaid: 1000,
+                dueDate: 2 / 3 / 20,
+                defaulter: true,
+                loanSanctionedOnDate: 1 / 1 / 19,
+                annualIncome: 25000,
+                loantype: 'home',
+                roi: '3.5%',
+                transaction: 'cash',
+            },
+            {
+                lender: 'Axis',
+                borrower: 'Sangam',
+                loanAmount: 4000,
+                emi: 500,
+                loanAmtPaid: 900,
+                dueDate: 2 / 3 / 20,
+                defaulter: true,
+                loanSanctionedOnDate: 1 / 1 / 19,
+                annualIncome: 22000,
+                loantype: 'home',
+                roi: '3.8%',
+                transaction: 'cashless',
+            },
+            {
+                lender: 'Axis',
+                borrower: 'Sara',
+                loanAmount: 12000,
+                emi: 3000,
+                loanAmtPaid: 5000,
+                dueDate: 26 / 5 / 20,
+                defaulter: false,
+                loanSanctionedOnDate: 1 / 1 / 19,
+                annualIncome: 35000,
+                loantype: 'home',
+                roi: '5%',
+                transaction: 'cash',
+            },
+            {
+                lender: 'Axis',
+                borrower: 'Snehal',
+                loanAmount: 115000,
+                emi: 9000,
+                loanAmtPaid: 30000,
+                dueDate: 26 / 5 / 20,
+                defaulter: false,
+                loanSanctionedOnDate: 1 / 1 / 19,
+                annualIncome: 70000,
+                loantype: 'home',
+                roi: '5%',
+                transaction: 'cashless',
+            },
+            {
+                lender: 'SBI',
+                borrower: 'Minal',
+                loanAmount: 9000,
+                emi: 900,
+                loanAmtPaid: 2000,
+                dueDate: 2 / 3 / 20,
+                defaulter: true,
+                loanSanctionedOnDate: 1 / 1 / 19,
+                annualIncome: 27000,
+                loantype: 'home',
+                roi: '3.5%',
+                transaction: 'cashless',
+            },
+            {
+                lender: 'SBI',
+                borrower: 'Pallavi',
+                loanAmount: 4000,
+                emi: 500,
+                loanAmtPaid: 900,
+                dueDate: 2 / 3 / 20,
+                defaulter: true,
+                loanSanctionedOnDate: 1 / 1 / 19,
+                annualIncome: 22000,
+                loantype: 'home',
+                roi: '3.8%',
+                transaction: 'cashless',
+            },
+            {
+                lender: 'SBI',
+                borrower: 'Zayra',
+                loanAmount: 12000,
+                emi: 3000,
+                loanAmtPaid: 5000,
+                dueDate: 26 / 5 / 20,
+                defaulter: false,
+                loanSanctionedOnDate: 1 / 1 / 19,
+                annualIncome: 35000,
+                loantype: 'home',
+                roi: '5%',
+                transaction: 'cash',
+            },
+            {
+                lender: 'SBI',
+                borrower: 'Komal',
+                loanAmount: 115000,
+                emi: 9000,
+                loanAmtPaid: 30000,
+                dueDate: 26 / 5 / 20,
+                defaulter: false,
+                loanSanctionedOnDate: 1 / 1 / 19,
+                annualIncome: 70000,
+                loantype: 'home',
+                roi: '5%',
+                transaction: 'cashless',
+            },
+            {
+                lender: 'kotak',
+                borrower: 'Anjeli',
+                loanAmount: 150000,
+                emi: 5000,
+                loanAmtPaid: 9000,
+                dueDate: 23 / 5 / 20,
+                defaulter: false,
+                loanSanctionedOnDate: 1 / 1 / 19,
+                annualIncome: 100000,
+                loantype: 'home',
+                roi: '5%',
+                transaction: 'cashless',
+            },
+        ];
+
+        function LoanRecord(data) {
+            return {
+                data,
+                //1.get data by the particular lender name,
+                particularLenderName(lender) {
+                    const lenderName = this.data.find(data => data.lender === lender)
+                    console.log(lenderName);
+                },
+                //2.get data by the  borrower name.
+                particularBorrowerName(borrower) {
+                    const lenderName = this.data.find(data => data.borrower === borrower)
+                    console.log(lenderName);
+                },
+                // 3.get data whose loan amout is greater then 1 lakh
+                loanAmtGrtThan1Lakh() {
+                    const loanAmt = this.data.filter(data => data.loanAmount > 100000)
+                    console.log(loanAmt);
+                },
+                //4.get data whose time period is been expired
+                timePeriodExpiredData() {
+                    const loanPeriod = this.data.filter(data => data.defaulter != false)
+                    const defaulterData = loanPeriod.map(data => {
+                        return data;
+                    })
+                    console.log(defaulterData);
+                },
+                //5.get all the defaulter list with the amount remaning to be paid.
+                defaulterListWithRemainingAmt() {
+                    const loanPeriod1 = this.data.filter(data => data.defaulter != false)
+                    const defaulterData1 = loanPeriod1.map(data => {
+                        return `${data.borrower}-${data.loanAmtPaid}`;
+
+                    })
+                    console.log(defaulterData1);
+                },
+                //  //6 get defaulter list whose outstanding amount is greater then 10k
+                //  defaulterListOutStadingAmtGrtThan10k(){
+                //     const loanPeriod2=this.data.filter(data => data.defaulter != false && data.loanAmtPaid > 10000)
+                //     const defaulterData2=loanPeriod2.map(data =>{
+                //          return `${data.borrower}-${data.loanAmtPaid}`;
+                //      })
+                //      console.log(defaulterData2);
+                //  },
+
+                //7.get total loan sanction amount
+                totalLoanSanctionAmt() {
+                    const sanctionAmt = this.data.filter(data => data.loanAmount > 0)
+                        .map(data => data.loanAmount)
+                        .reduce((a, b) => a + b, 0);
+                    console.log("Total Sanction Amount: " + sanctionAmt);
+
+                },
+                //8.get total amount recovered,
+                totalAmtRecover() {
+                    const recoverAmt = this.data.filter(data => data.loanAmtPaid > 0)
+                        .map(data => data.loanAmtPaid)
+                        .reduce((a, b) => a + b, 0);
+                    console.log("Total Recover Amount: " + recoverAmt);
+
+                },
+                //9.get the data whose roi is greater then 5% and emi is greater then 2000
+                roiGrtThan5perAndEmiGrtThan2k() {
+                    const roiAndEmiData = this.data.filter(data => {
+                        return (data.roi >= '5%' && data.emi > 2000)
+                    })
+                    console.log(roiAndEmiData);
+                },
+
+                //10.get the total amount which has to be recovered yet
+                totalAmountRecoverYet() {
+
+                },
+            }
+
+        }
+
+
+        const loanDetails = LoanRecord(Loandataset);
+        loanDetails.particularLenderName('Axis');
+        // loanDetails.particularBorrowerName('Minal');
+        // loanDetails.loanAmtGrtThan1Lakh();
+        // loanDetails.timePeriodExpiredData();
+        // loanDetails.defaulterListWithRemainingAmt();
+        // //   loanDetails.defaulterListOutStadingAmtGrtThan10k();
+        // loanDetails.totalLoanSanctionAmt();
+        // loanDetails.totalAmtRecover();
+        // loanDetails.roiGrtThan5perAndEmiGrtThan2k();
+        // loanDetails.totalAmountRecoverYet();
+
+    </script>
+</body>
+
+</html>

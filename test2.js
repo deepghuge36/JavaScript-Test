@@ -118,7 +118,7 @@ const Loandataset = [
     emi: 5000,
     loanAmtPaid: 9000,
     dueDate: 23 / 5 / 20,
-    defaulter: true,
+    defaulter: false,
     loanSanctionedOnDate: 1 / 1 / 19,
     annualIncome: 100000,
     loantype: 'home',
@@ -127,52 +127,36 @@ const Loandataset = [
   },
 ];
 
-function LoanDetails(data) {
+function LoanRecord(data) {
   return {
     data,
-    // 1.get data by the particular lender name,
-    lenderName(name) {
-      return data.find((data) => data.lender === name);
+    lenderName(lender) {
+      return data.filter((data) => data.lender === lender);
     },
-    // 2.get data by the  borrower name.
-    borrowerName(name) {
-      return data.find((data) => data.borrower === name);
+    particularBorrowerName(borrower) {
+      return data.filter((data) => data.borrower === borrower);
     },
-    // 3.get data whose loan amout is greater then 1 lakh
-    amountOneLakh() {
+    totalAmount() {
+      return data.reduce((acc, val) => {
+        return acc + val.loanAmount;
+      }, 0);
+    },
+    amountTobePaid() {
       return data.map((data) => {
-        return data.loanAmount > 100000 ? data.borrower : null;
+        return data.loanAmount - data.loanAmtPaid;
       });
     },
-    // 4.get data whose time period is been expired
-    timeExpired() {
-      return data.filter((data) => {
-        return data.defaulter !== false ? data.borrower : null;
-      });
-    },
-    // 5.get all the defaulter list with the amount remaning to be paid.
-    defaulterAmount() {
+    rateofInterest() {
       return data.map((data) => {
-        return data.defaulter == true
-          ? `${data.loanAmount}` - `${data.loanAmtPaid}`
-          : data.borrower;
+        return data.roi === '3.5%' ? (`${data.lender}=${data.roi}`) : null;
       });
-    },
-    // 6. get defaulter list whose outstanding amount is greater then 10k
-    defaulterAmountTenK() {
-     for(var key in data.defaulter){
-       
-     }
     },
   };
 }
-var Loanrecord = LoanDetails(Loandataset);
-// console.log(Loanrecord.amountOneLakh());
-// console.log(Loanrecord.timeExpired());
-// console.log(Loanrecord.defaulterAmount());
-console.log(Loanrecord.defaulterAmountTenK());
-// 7.get total loan sanction amount
-// 8.get total amount recovered,
-// 9.get the data whose roi is greater then 5% and emi is greater then 2000
-// 10.get the total amount which has to be recovered yet
-// 11.get all the detail of cash based transaction and cashless transaction
+
+var loanDetails = LoanRecord(Loandataset);
+// console.log(loanDetails.lenderName('SBI'));
+// console.log(loanDetails.particularBorrowerName('Komal'));
+// console.log(loanDetails.totalAmount());
+// console.log(loanDetails.amountTobePaid());
+console.log(loanDetails.rateofInterest());
