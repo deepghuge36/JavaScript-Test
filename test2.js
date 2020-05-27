@@ -148,15 +148,15 @@ function LoanRecord(data) {
     },
     rateofInterest() {
       return data.map((data) => {
-        return data.roi === '3.5%' ? (`${data.lender}=${data.roi}`) : null;
+        return data.roi === '3.5%' ? `${data.lender}=${data.roi}` : null;
       });
     },
   };
 }
 
 var loanDetails = LoanRecord(Loandataset);
-// console.log(loanDetails.lenderName('SBI'));
+console.log(loanDetails.lenderName('SBI'));
 // console.log(loanDetails.particularBorrowerName('Komal'));
 // console.log(loanDetails.totalAmount());
 // console.log(loanDetails.amountTobePaid());
-console.log(loanDetails.rateofInterest());
+// console.log(loanDetails.rateofInterest());

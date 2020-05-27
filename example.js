@@ -132,7 +132,7 @@ function LoanDetails(data) {
     data,
     // 1.get data by the particular lender name,
     lenderName(name) {
-      return data.find((data) => data.lender === name);
+      return data.filter((data) => data.lender === name);
     },
     // 2.get data by the  borrower name.
     borrowerName(name) {
@@ -161,7 +161,7 @@ function LoanDetails(data) {
     // 6. get defaulter list whose outstanding amount is greater then 10k
     defaulterAmountTenK() {
      for(var key in data.defaulter){
-       
+
      }
     },
   };

@@ -138,12 +138,20 @@
             },
         ];
 
+        function total(data) {
+            return data.reduce((acc, val) => {
+                return acc + val.loanAmount;
+            }, 0);
+
+        }
+        console.log(total(Loandataset));
+
         function LoanRecord(data) {
             return {
                 data,
                 //1.get data by the particular lender name,
-                particularLenderName(lender) {
-                    const lenderName = this.data.find(data => data.lender === lender)
+                particularLenderName=(lender) => {
+                    const lenderName = this.data.filter(data => data.lender === lender)
                     console.log(lenderName);
                 },
                 //2.get data by the  borrower name.
@@ -217,11 +225,12 @@
 
         const loanDetails = LoanRecord(Loandataset);
         loanDetails.particularLenderName('Axis');
+
         // loanDetails.particularBorrowerName('Minal');
         // loanDetails.loanAmtGrtThan1Lakh();
         // loanDetails.timePeriodExpiredData();
         // loanDetails.defaulterListWithRemainingAmt();
-        // //   loanDetails.defaulterListOutStadingAmtGrtThan10k();
+        // loanDetails.defaulterListOutStadingAmtGrtThan10k();
         // loanDetails.totalLoanSanctionAmt();
         // loanDetails.totalAmtRecover();
         // loanDetails.roiGrtThan5perAndEmiGrtThan2k();

@@ -1,0 +1,29 @@
+dataset = [{
+    lender:'someone',
+    borrower:'sahil',
+    loanAmount:5000,
+    emi:600,
+    loanAmtPaid:1000,
+    dueDate:2/3/20,
+    defaulter:true,
+    loanSanctionedOnDate:1/1/19,
+    annualIncome:25000,
+    loantype:'home'
+    roi:'3.5%',
+    transaction:'cashless'
+}]
+
+
+question to be solved
+
+1.get data by the particular lender name,
+2.get data by the  borrower name.
+3.get data whose loan amout is greater then 1 lakh
+4.get data whose time period is been expired
+5.get all the defaulter list with the amount remaning to be paid.
+6 get defaulter list whose outstanding amount is greater then 10k
+7.get total loan sanction amount
+8.get total amount recovered,
+9.get the data whose roi is greater then 5% and emi is greater then 2000
+10.get the total amount which has to be recovered yet
+11.get all the detail of cash based transaction and cashless transaction

@@ -42,9 +42,8 @@
   ];
 
   function MovieStore(data) {
-
     return {
-      data,
+      // data,
       totalPrice() {
         data.reduce((startingValue, item) => {
           return startingValue + item.price;
